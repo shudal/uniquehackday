@@ -68,6 +68,22 @@ public class TaskController {
         return result;
     }
 
+    @GetMapping("task")
+    public HashMap<String, Object> getTask(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     @GetMapping("tasks")
     public HashMap<String, Object> getTasks(HttpServletRequest request, HttpSession httpSession) {
         HashMap<String, Object> result = new HashMap<>();
