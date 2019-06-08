@@ -20,7 +20,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("register")
-    public HashMap<String, Object> login(HttpServletRequest request, HttpSession httpSession) {
+    public HashMap<String, Object> register(HttpServletRequest request, HttpSession httpSession) {
         HashMap<String, Object> result = new HashMap<>();
         result.put("code", "-1");
         result.put("msg", "");
@@ -44,8 +44,12 @@ public class UserController {
             user.setRole(Integer.parseInt(request.getParameter("role")));
 
             if (user.getRole() == CodeConfig.ROLE_DEMAND_SIDE) {
-
+                user.setUsername(user.getPhone() + "");
+            } else {
+                user.setUsername(user.getIdNumber());
             }
+
+            userService.save(user);
 
             result.put("code", 1);
             result.put("msg", "OK");
@@ -64,9 +68,28 @@ public class UserController {
         result.put("data", "");
 
         try {
-            String username = request.getParameter("username");
-        } catch (Exception e) {
+            String _username = request.getParameter("username");
+            String _password = request.getParameter("password");
 
+            User user = userService.findUserByUsernameAndStatus(_username, CodeConfig.STATUS_USER_NORMAL);
+
+            if (MyEncrypt.sha1(_password).equals(user.getPassword())) {
+                httpSession.setAttribute("id", user.getId());
+                httpSession.setAttribute("role", user.getRole());
+
+                HashMap<String, Object> data = new HashMap<>();
+                data.put("id", user.getId());
+                data.put("role", user.getRole());
+                data.put("name", user.getName());
+
+                result.put("code", 1);
+                result.put("msg", "OK");
+            } else {
+                result.put("msg", "pwd_wrong");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
         }
         return result;
     }
@@ -80,7 +103,8 @@ public class UserController {
         try {
 
         } catch (Exception e) {
-
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
         }
         return result;
     }
