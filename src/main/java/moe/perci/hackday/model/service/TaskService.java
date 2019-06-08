@@ -1,7 +1,10 @@
 package moe.perci.hackday.model.service;
 
 import moe.perci.hackday.model.Task;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface TaskService extends JpaRepository<Task, Long> {
+import java.util.List;
+
+public interface TaskService extends PagingAndSortingRepository<Task, Long> {
+    List<Task> findTasksByUserProvince(String _province);
 }

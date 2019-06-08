@@ -9,4 +9,7 @@ public class CodeConfig {
 
     public static int TYPE_NEED_MAN = 1;
     public static int TYPE_NEED_MONEY = 2;
+
+    public static int STATUS_TASK_OVER = -1;
+    public static int STATUS_TASK_PENDING = 1;
 }

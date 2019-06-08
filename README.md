@@ -104,18 +104,18 @@
 
 ### TODO
 
-1. 获取task列表
-2. 按条件塞选task。
+x1. 获取task列表
+x2. 按条件塞选task。
   - 小学、中学？
   - province、city、county
   - startTime 
 
-// 任务接受情况表
-4. 获取一个任务已经报名的人。
-5. 获取一个人已经报名的任务。
+x// 任务接受情况表
+x4. 获取一个任务已经报名的人。
+x5. 获取一个人已经报名的任务。
 // 
- - taskId
- - userId
+ x- taskId
+ x- userId
 
 
 6. 根据taskId获取task

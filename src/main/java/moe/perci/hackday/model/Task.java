@@ -3,9 +3,7 @@ package moe.perci.hackday.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -25,4 +23,8 @@ public class Task {
     private int lastDays;
     private int schoolId;
     private String createTime;
+
+    @ManyToOne
+    @JoinColumn(name="schoolId", insertable = false, updatable = false)
+    private User user;
 }
