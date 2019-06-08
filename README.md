@@ -90,7 +90,7 @@
 
 
 ### 发布需求
->POST: www.example.com/demside/task
+>POST: www.example.com/task/task
 
 | 参数 | 值 |
 | --- | --- |

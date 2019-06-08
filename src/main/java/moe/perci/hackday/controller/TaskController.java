@@ -16,8 +16,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("demside")
-public class DemsideController {
+@RequestMapping("task")
+public class TaskController {
     @Autowired
     UserService userService;
 
