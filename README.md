@@ -172,6 +172,34 @@
     }
 }
 ```
+
+### 获取一个支教需求的志愿者
+>GET: www.example.com/task/volunteers?taskId=7
+- 返回数据 
+``` json
+成功:
+{
+    "msg": "OK",
+    "code": 1,
+    "data": [
+        {
+            "phone": "17396178857",
+            "name": "武汉理工"
+        },
+        {
+            "phone": "17396178857",
+            "name": "wut"
+        } 
+    ]
+}
+志愿者数为0：
+{
+    "msg": "vol_empty",
+    "code": "-1",
+    "data": ""
+}
+```
+
 ### TODO
 
 x1. 获取task列表

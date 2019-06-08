@@ -1,7 +1,9 @@
 package moe.perci.hackday.controller;
 
+import moe.perci.hackday.model.Accept;
 import moe.perci.hackday.model.Task;
 import moe.perci.hackday.model.User;
+import moe.perci.hackday.model.service.AcceptService;
 import moe.perci.hackday.model.service.TaskService;
 import moe.perci.hackday.model.service.UserService;
 import org.hibernate.type.BigDecimalType;
@@ -31,6 +33,9 @@ public class TaskController {
 
     @Autowired
     TaskService taskService;
+
+    @Autowired
+    AcceptService acceptService;
 
     @PostMapping("task")
     public HashMap<String, Object> addTask(HttpServletRequest request, HttpSession httpSession) {
@@ -181,6 +186,42 @@ public class TaskController {
             result.put("code", 1);
             result.put("msg", "OK");
 
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @GetMapping("volunteers")
+    public HashMap<String, Object> t(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+            int taskId = Integer.parseInt(request.getParameter("taskId"));
+            List<Accept> acceptList = acceptService.findAcceptsByTaskId(taskId);
+
+            if (acceptList.size() == 0) {
+                result.put("msg", "vol_empty");
+                return result;
+            }
+
+            List data = new ArrayList();
+            for (int i=0; i<acceptList.size(); i++) {
+                HashMap<String, Object> myVol = new HashMap<>();
+                User user = userService.findUserById(acceptList.get(i).getUserId());
+                myVol.put("name", user.getName());
+                myVol.put("phone", user.getPhone());
+
+                data.add(myVol);
+            }
+
+            result.put("data", data);
+            result.put("code", 1);
+            result.put("msg", "OK");
         } catch (Exception e) {
             result.put("msg", e.getMessage());
             e.printStackTrace();
