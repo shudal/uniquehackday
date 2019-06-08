@@ -76,7 +76,21 @@ public class TaskController {
         result.put("data", "");
 
         try {
+            Task task = taskService.findTaskById(Integer.parseInt(request.getParameter("id")));
+            HashMap<String, Object> data= new HashMap<>();
+            data.put("description", task.getDescription());
+            data.put("province", task.getUser().getProvince());
+            data.put("city", task.getUser().getCity());
+            data.put("county", task.getUser().getCounty());
+            data.put("peopleNeed", task.getPeopleNeed());
+            data.put("phone", task.getUser().getPhone());
+            data.put("ddlRegister", task.getDdlRegister());
+            data.put("schoolDes", task.getUser().getDescription());
 
+            result.put("data", data);
+
+            result.put("code", 1);
+            result.put("msg", "OK");
         } catch (Exception e) {
             result.put("msg", e.getMessage());
             e.printStackTrace();

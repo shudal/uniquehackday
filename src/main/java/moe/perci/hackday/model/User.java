@@ -20,7 +20,7 @@ public class User {
     private String city;
     private String county;
     private String address;
-    private int phone;
+    private String phone;
     private String username;
     private String password;
     private String school;

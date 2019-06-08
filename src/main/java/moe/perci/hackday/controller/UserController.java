@@ -33,7 +33,7 @@ public class UserController {
             user.setCity(request.getParameter("city"));
             user.setCounty(request.getParameter("county"));
             user.setAddress(request.getParameter("address"));
-            user.setPhone(Integer.parseInt(request.getParameter("phone")));
+            user.setPhone(request.getParameter("phone"));
 
             user.setPassword(MyEncrypt.sha1(request.getParameter("password")));
             user.setSchool(request.getParameter("school"));
