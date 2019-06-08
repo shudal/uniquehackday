@@ -30,4 +30,5 @@ public class User {
     private int status;
     private int role;
     private String description;
+    private String schoolLevel;
 }

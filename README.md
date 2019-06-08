@@ -29,9 +29,11 @@
 | 参数 | 值 |
 | ---- | --- |
 | name | 学校名 |
+| schoolLevel | 学校级别，如初中，小学 |
 | province | 省  |
 | city     | 市  |
 | county   | 县  | 
+| address | 详细地址 |
 | phone    | 联系电话,登录名 |
 | password | 密码 |
 | description | 学校描述 |
@@ -99,3 +101,21 @@
 | description | 需求内容 |
 | imgUrl | 描述需求的图片的链接，多个图片图片以&#124;分开 |
 | lastDays | 志愿者至少要支教的时间 |
+
+### TODO
+
+1. 获取task列表
+2. 按条件塞选task。
+  - 小学、中学？
+  - province、city、county
+  - startTime 
+
+// 任务接受情况表
+4. 获取一个任务已经报名的人。
+5. 获取一个人已经报名的任务。
+// 
+ - taskId
+ - userId
+
+
+6. 根据taskId获取task
