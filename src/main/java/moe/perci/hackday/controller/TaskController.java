@@ -156,8 +156,28 @@ public class TaskController {
             for (int i=iBegin; i<taskList.size() && i<iEnd; i++) {
                 taskList3.add(taskList.get(i));
             }
+            taskList = taskList3;
 
-            result.put("data", taskList3);
+            List list = new ArrayList();
+            List<Task> taskList4 = new ArrayList<>();
+            for (int i=0; i<taskList.size(); i++) {
+                Task task = taskList.get(i);
+
+                HashMap<String, Object> myTask = new HashMap<>();
+
+                myTask.put("id", task.getId());
+                myTask.put("province", task.getUser().getProvince());
+                myTask.put("city", task.getUser().getCity());
+                myTask.put("county", task.getUser().getCounty());
+                myTask.put("name", task.getUser().getName());
+                myTask.put("title", task.getTitle());
+                myTask.put("ddlRegister", task.getDdlRegister());
+                myTask.put("createTime", task.getCreateTime());
+
+                list.add(myTask);
+            }
+
+            result.put("data", list);
             result.put("code", 1);
             result.put("msg", "OK");
 
