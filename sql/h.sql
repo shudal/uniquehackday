@@ -59,7 +59,7 @@ CREATE TABLE `good` (
   `status` tinyint(1) NOT NULL,
   `img_url` varchar(1400) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +68,7 @@ CREATE TABLE `good` (
 
 LOCK TABLES `good` WRITE;
 /*!40000 ALTER TABLE `good` DISABLE KEYS */;
+INSERT INTO `good` VALUES (1,'jun','this is title',3,'l:1,w:2','17396178857','alipay',1,1,'www.baidu.com'),(2,'jun','this is title',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(3,'jun','this is title, my id is 2',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(4,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(5,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(6,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(7,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(8,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(9,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(10,'jun','this is title, my id is 2',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(11,'jun','this is title, my id is 2',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(12,'jun','this is title, my id is 2',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(13,'jun','this is title, my id is 2',3,'l:1,w:2','17396178857','alipay',1,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(14,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(15,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg'),(16,'jun','this is title',3,'l:1,w:2','17396178857','alipay',2,1,'https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg');
 /*!40000 ALTER TABLE `good` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-08 21:14:47
+-- Dump completed on 2019-06-08 21:40:21

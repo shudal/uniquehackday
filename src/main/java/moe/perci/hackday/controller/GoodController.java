@@ -20,7 +20,7 @@ public class GoodController {
     GoodService goodService;
 
     @GetMapping("goods")
-    public HashMap<String, Object> t(HttpServletRequest request, HttpSession httpSession) {
+    public HashMap<String, Object> getGoods(HttpServletRequest request, HttpSession httpSession) {
         HashMap<String, Object> result = new HashMap<>();
         result.put("code", "-1");
         result.put("msg", "");
@@ -31,6 +31,27 @@ public class GoodController {
             List<Good> goods = goodService.findGoodsByTypeAndStatus(type, CodeConfig.STATUS_GOOD_PENDING);
 
             result.put("data", goods);
+            result.put("code",1);
+            result.put("msg", "OK");
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @GetMapping("good")
+    public HashMap<String, Object> getGood(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Good good = goodService.findGoodById(id);
+
+            result.put("data", good);
             result.put("code",1);
             result.put("msg", "OK");
         } catch (Exception e) {

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GoodService extends JpaRepository<Good, Long> {
     List<Good> findGoodsByTypeAndStatus(int type, int status);
+    Good findGoodById(int id);
 }
