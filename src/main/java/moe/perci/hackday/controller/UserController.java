@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.math.BigInteger;
 import java.util.HashMap;
 
 @RestController
@@ -44,11 +43,30 @@ public class UserController {
             user.setStatus(CodeConfig.STATUS_USER_NORMAL);
             user.setRole(Integer.parseInt(request.getParameter("role")));
 
+            if (user.getRole() == CodeConfig.ROLE_DEMAND_SIDE) {
+
+            }
+
             result.put("code", 1);
             result.put("msg", "OK");
         } catch (Exception e) {
             result.put("msg", e.getMessage());
             e.printStackTrace();
+        }
+        return result;
+    }
+
+    @PostMapping("login")
+    public HashMap<String, Object> login(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+            String username = request.getParameter("username");
+        } catch (Exception e) {
+
         }
         return result;
     }

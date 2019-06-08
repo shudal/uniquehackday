@@ -32,7 +32,7 @@
 | province | 省  |
 | city     | 市  |
 | county   | 县  |
-| phone    | 联系电话 |
+| phone    | 联系电话,登录名 |
 | password | 密码 |
 | role | 1 | 
 
