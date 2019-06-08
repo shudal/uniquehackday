@@ -200,6 +200,65 @@
 }
 ```
 
+### 获取商品列表
+> GET: www.example.com/good/goods?type=
+type=1表示获取绘画，type=2表示获取手工艺品
+- 返回数据
+``` json
+{
+    "msg": "OK",
+    "code": 1,
+    "data": [
+        {
+            "id": 4,
+            "author": "jun",
+            "title": "this is title",
+            "price": 3,
+            "size": "l:1,w:2",
+            "phone": "17396178857",
+            "payment": "alipay",
+            "type": 2,
+            "status": 1,
+            "imgUrl": "https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg"
+        },
+        {
+            "id": 5,
+            "author": "jun",
+            "title": "this is title",
+            "price": 3,
+            "size": "l:1,w:2",
+            "phone": "17396178857",
+            "payment": "alipay",
+            "type": 2,
+            "status": 1,
+            "imgUrl": "https://perci-1253331419.cos.ap-chengdu.myqcloud.com/wallhaven-733876.jpg"
+        } 
+    ]
+}
+```
+
+#### 根据Id获取商品
+> GET: www.example.com/good/good?id=1
+- 返回数据
+``` json
+
+{
+    "msg": "OK",
+    "code": 1,
+    "data": {
+        "id": 1,
+        "author": "jun",
+        "title": "this is title",
+        "price": 3,
+        "size": "l:1,w:2",
+        "phone": "17396178857",
+        "payment": "alipay",
+        "type": 1,
+        "status": 1,
+        "imgUrl": "www.baidu.com"
+    }
+}
+``` 
 ### TODO
 
 x1. 获取task列表
