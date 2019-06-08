@@ -12,4 +12,10 @@ public class CodeConfig {
 
     public static int STATUS_TASK_OVER = -1;
     public static int STATUS_TASK_PENDING = 1;
+
+    public static int STATUS_GOOD_SALED = -1;
+    public static int STATUS_GOOD_PENDING = 1;
+
+    public static int TYPE_GOOD_DRAW = 1;
+    public static int TYPE_GOOD_HAND = 2;
 }

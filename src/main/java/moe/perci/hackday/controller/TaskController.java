@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.awt.print.Pageable;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("task")
@@ -118,6 +115,10 @@ public class TaskController {
             } else {
                 Iterable<Task> taskIterable = taskService.findAll();
                 taskIterable.forEach(taskList::add);
+            }
+
+            if (taskList.size() != 0 ) {
+                Collections.reverse(taskList);
             }
 
             if (request.getParameter("schoolLevel") != null ) {
@@ -222,6 +223,22 @@ public class TaskController {
             result.put("data", data);
             result.put("code", 1);
             result.put("msg", "OK");
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @GetMapping("latest")
+    public HashMap<String, Object> getLatestTasks(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+
         } catch (Exception e) {
             result.put("msg", e.getMessage());
             e.printStackTrace();
