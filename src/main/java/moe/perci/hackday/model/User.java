@@ -29,4 +29,5 @@ public class User {
     private String nameOfContactPerson;
     private int status;
     private int role;
+    private String description;
 }

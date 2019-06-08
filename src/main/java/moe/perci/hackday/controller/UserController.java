@@ -42,6 +42,7 @@ public class UserController {
             user.setNameOfContactPerson(request.getParameter("nameOfContactPerson"));
             user.setStatus(CodeConfig.STATUS_USER_NORMAL);
             user.setRole(Integer.parseInt(request.getParameter("role")));
+            user.setDescription(request.getParameter("description"));
 
             if (user.getRole() == CodeConfig.ROLE_DEMAND_SIDE) {
                 user.setUsername(user.getPhone() + "");

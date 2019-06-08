@@ -19,7 +19,7 @@
 | name    | 机构名 |
 | province | 省  |
 | city     | 市  |
-| county   | 县  |
+| county   | 县  | 
 | idNumber | 机构号，登录名 |
 | phone    | 联系电话 |
 | password | 密码 |
@@ -31,9 +31,10 @@
 | name | 学校名 |
 | province | 省  |
 | city     | 市  |
-| county   | 县  |
+| county   | 县  | 
 | phone    | 联系电话,登录名 |
 | password | 密码 |
+| description | 学校描述 |
 | role | 1 | 
 
 - 返回数据
@@ -84,3 +85,17 @@
 
 
 ```
+
+
+### 发布需求
+>POST: www.example.com/demside/task
+
+| 参数 | 值 |
+| --- | --- |
+| title | 标题 |
+| ddlRegister | 报名截至时间戳 |
+| startTime | 支教开始时间戳 | 
+| peopleNeed | 需要人数 |
+| description | 需求内容 |
+| imgUrl | 描述需求的图片的链接，多个图片图片以&#124;分开 |
+| lastDays | 志愿者至少要支教的时间 |
