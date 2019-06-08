@@ -16,7 +16,6 @@ public class Task {
     private String title;
     private String ddlRegister;
     private String startTime;
-    private int type;
     private int peopleNeed;
     private String description;
     private String imgUrl;

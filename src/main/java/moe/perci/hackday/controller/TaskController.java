@@ -107,8 +107,12 @@ public class TaskController {
 
         try {
             List<Task> taskList = new ArrayList<>();
+
             if (request.getParameter("province") != null ) {
                 taskList = taskService.findTasksByUserProvince(request.getParameter("province"));
+            } else {
+                Iterable<Task> taskIterable = taskService.findAll();
+                taskIterable.forEach(taskList::add);
             }
 
             if (request.getParameter("schoolLevel") != null ) {
@@ -127,7 +131,7 @@ public class TaskController {
                 BigInteger leastCreateTimeBi = new BigInteger(request.getParameter("startTime"));
 
                 for (int i=0; i<taskList.size(); i++) {
-                    BigInteger taskCreateTimeBi  = new BigInteger(taskList.get(i).getCreateTime());
+                    BigInteger taskCreateTimeBi  = new BigInteger(taskList.get(i).getStartTime());
 
                     if (taskCreateTimeBi.compareTo(leastCreateTimeBi) == 1 ) {
                         taskList3.add(taskList.get(i));
@@ -138,15 +142,14 @@ public class TaskController {
             }
 
 
-            int page = 0;
+            int page = 1;
             if (request.getParameter("page") != null) {
-                page = Integer.parseInt("page");
+                page = Integer.parseInt(request.getParameter("page"));
             }
             int pageSize = 9;
             if (request.getParameter("pageSize") != null) {
-                pageSize = Integer.parseInt("pageSize");
+                pageSize = Integer.parseInt(request.getParameter("pageSize"));
             }
-
             int iBegin = pageSize*(page - 1);
             int iEnd = iBegin + pageSize;
             List<Task> taskList3 = new ArrayList<>();
