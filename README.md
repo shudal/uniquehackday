@@ -240,8 +240,8 @@ type=1表示获取绘画，type=2表示获取手工艺品
 #### 根据Id获取商品
 > GET: www.example.com/good/good?id=1
 - 返回数据
-``` json
 
+``` json
 {
     "msg": "OK",
     "code": 1,
@@ -258,7 +258,40 @@ type=1表示获取绘画，type=2表示获取手工艺品
         "imgUrl": "www.baidu.com"
     }
 }
+
 ``` 
+
+### 获取登录用户的信息
+
+> GET: www.example.com/user/info
+
+- 返回数据
+
+``` json
+{
+    "msg": "OK",
+    "code": 1,
+    "data": {
+        "id": 4,
+        "name": "wut",
+        "province": "hubei",
+        "city": "wuhan",
+        "county": "wuhan",
+        "address": "somewhere in wuhan",
+        "phone": "17396178857",
+        "username": "17396178857",
+        "password": "",
+        "school": null,
+        "educationBg": null,
+        "idNumber": null,
+        "nameOfContactPerson": null,
+        "status": 1,
+        "role": 1,
+        "description": "i am a 984.5",
+        "schoolLevel": "high school"
+    }
+}
+```
 ### TODO
 
 x1. 获取task列表

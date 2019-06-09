@@ -5,6 +5,7 @@ import moe.perci.hackday.model.User;
 import moe.perci.hackday.model.service.UserService;
 import moe.perci.hackday.util.MyEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,6 +90,28 @@ public class UserController {
             } else {
                 result.put("msg", "pwd_wrong");
             }
+        } catch (Exception e) {
+            result.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @GetMapping("info")
+    public HashMap<String, Object> getUserInfo(HttpServletRequest request, HttpSession httpSession) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("code", "-1");
+        result.put("msg", "");
+        result.put("data", "");
+
+        try {
+            int userId = Integer.parseInt(httpSession.getAttribute("id").toString());
+            User user = userService.findUserById(userId);
+
+            user.setPassword("");
+            result.put("data", user);
+            result.put("code", 1);
+            result.put("msg", "OK");
         } catch (Exception e) {
             result.put("msg", e.getMessage());
             e.printStackTrace();
